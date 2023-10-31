@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="universal/component.css">
+    <link rel="stylesheet" href="universal/normalize.css">
+    <title>Callout component</title>
+    <style>
+        .container {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        a {
+            color: steelblue;
+            font-weight: bold;
+            font-style: italic;
+            text-decoration: none;
+        }
+    
+        .callouts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            grid-auto-rows: 250px auto auto auto;
+            grid-gap: 1rem;
+            /* to pay attention to the width */
+            container-type: inline-size;
+            grid-auto-flow: dense;
+        }
+    
+        .callout {
+            display: grid;
+            grid-gap: 1rem;
+            /* Spanning 3 bc we have 3 elements we are wanting to include within our subgrid */
+            grid-row: span 4;
+            grid-template-rows: subgrid;
+        }
+    
+        .callout_image {
+            height: 260px; /* Set a fixed height for the image container */
+            display: flex;
+            align-items: center;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .callout_purchase {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .callout_purchase {
+            font-size: 2rem;
+            color: steelblue;
+        }
+
+        .callout_purchase span {
+            font-size: .75rem;
+            display: block;
+        }
+
+        .callout_purchase button {
+            color: steelblue;
+            border: solid 2px steelblue;
+            background-color: antiquewhite;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+
+        .callout_description {
+            display: none;
+        }
+
+        @media (min-width: 1200px) {
+            .callout_description {
+                display: inline-block;
+            }
+        }
+
+        .callout[data-featured="true"] {
+            @container (min-width: 750px) {
+                grid-column: span 2;
+
+                > img {
+                    grid-column: span 2;
+                }
+
+                > .callout_header {
+                    font-size: 2rem;
+                    /* grid-column: span 2; */
+
+                }
+                
+                .callout_description {
+                    display: block;
+                }
+            }
+
+            @container (min-width: 1200px) {
+                grid-column: span 2;
+
+                > img {
+                    grid-column: span 1 /-1;
+                }
+
+                > .callout_header {
+                    font-size: 2rem;
+                    grid-column: span 1 /-1;
+                }
+             }
+        }
+
+        /** 
+        .callout_image img {
+            max-height: 100%; /* Ensure the image doesn't exceed the container's height 
+            width: 100%; /* Make sure the image spans the entire container 
+            object-fit: cover; /* Maintain aspect ratio and cover the container 
+        } **/
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="grid-system">
+                <h1>COMPONENT: CALLOUTS</h1>
+                <h3>Callout Component created using the following: CSS, GRID, SUBGRID and CONTAINER</h3>
+                <p>All imagery is from Unsplash and are free to use. <a href="https://unsplash.com/" target="_blank">Linking to site</a> - and to give credit to Daniel Cheung. </p>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+        <div class="callouts">
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/artur-tumasjan-05804iCnNcQ-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/daniel-cheung-B7N0IjiIJYo-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/daniel-cheung-cPF2nlWcMY4-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/daniel-cheung-zky0BmMT5m8-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/daniel-cheung-ZqqlOZyGG7g-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout" data-featured="true">
+                <div class="callout_image">
+                    <img src="images/nik-F3E5Bkq0JUY-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/will-porada-DH5183gvKUg-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout_image">
+                    <img src="images/artur-tumasjan-05804iCnNcQ-unsplash.jpg" alt="">
+                </div>
+                <div class="callout_header">
+                    <h3>Callout Title</h3>
+                </div>
+                <div class="callout_description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tristique vestibulum libero, vitae luctus elit vehicula in. Nullam eget rutrum lectus, vitae bibendum nibh. Nulla facilisi.</p>
+                </div>
+                <div class="callout_purchase">
+                    <div class="cost">
+                        $25.00
+                        <span>for purchase</span>
+                    </div>
+                    <div>
+                        <button>Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer>
+        2023 mbwellman.com
+    </footer>
+</body>
+</html>
